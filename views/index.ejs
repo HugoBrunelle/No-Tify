@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>No-Tify</title>
+</head>
+
+<body>
+  <h1>No-Tify</h1>
+  <div class="main-section">
+    <form action="convert-mp3" method="POST" id="form">
+      <h2>Convert to MP3</h2>
+      <input type="text" name="videoID" placeholder="Video URL"><button id="convert-btn">Convert</button>
+    </form>
+  </div>
+  <div class="bottom-section">
+    <% if (typeof success != undefined && success) { %>
+      <div class="success">
+        <p><%= song_title %></p>
+        <a href="<%= song_link %>">
+          <button id="download-btn">DOWNLOAD</button>
+        </a>
+      </div>
+    <% } else if (typeof success != undefined && !success) { %>
+      <div class="errors">
+        <p><%= message %></p>
+      </div>
+    <% } %>
+  </div>
+</body>
+
+</html>
